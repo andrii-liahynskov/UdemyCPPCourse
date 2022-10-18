@@ -1,5 +1,7 @@
 ## Section 8 Challenge - Cents Exchange
 
+***Task text from the author:***
+```
 	For this program I will be using US dollars and cents.
 
 	Write a program that asks the user to enter the following:
@@ -27,7 +29,4 @@
 	nickels   : 1
 	pennies  : 2
 
-	Feel free to use your own currency system.
-	Also, think of how you might solve the problem using the modulo operator.
-
-	Have fun and test your program!!
+```
