@@ -30,3 +30,8 @@
 	pennies  : 2
 
 ```
+***Screenshots of running program in the console:***
+
+![cents_exchange_screensho1](docs/cents_exchange_01.jpg)
+
+![cents_exchange_screensho2](docs/cents_exchange_02.jpg)
