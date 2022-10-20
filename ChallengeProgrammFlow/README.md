@@ -44,12 +44,12 @@ If the list is empty you should display, "Unable to determine the largest number
 ```
 ***Screenshots of running program in the console:***
 
-![challenge_program_flow01](ChallengeProgrammFlow/docs/challenge_program_flow01.jpg)
+![challenge_program_flow01](docs/challenge_program_flow01.jpg)
 
-![challenge_program_flow02](ChallengeProgrammFlow/docs/challenge_program_flow02.jpg)
+![challenge_program_flow02](docs/challenge_program_flow02.jpg)
 
-![challenge_program_flow03](ChallengeProgrammFlow/docs/challenge_program_flow03.jpg)
+![challenge_program_flow03](docs/challenge_program_flow03.jpg)
 
-![challenge_program_flow04](ChallengeProgrammFlow/docs/challenge_program_flow04.jpg)
+![challenge_program_flow04](docs/challenge_program_flow04.jpg)
 
-![challenge_program_flow05](ChallengeProgrammFlow/docs/challenge_program_flow05.jpg)
+![challenge_program_flow05](docs/challenge_program_flow05.jpg)
