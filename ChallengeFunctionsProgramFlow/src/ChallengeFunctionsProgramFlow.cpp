@@ -101,9 +101,10 @@ using namespace std;
 
 void display_menu();
 char input_menu_item_to_uppercase(char);
-void print_vector(vector <int>);
-void add_number(vector <int>&);
+void print_vector(vector <int> numbers_list);
+void add_number(vector <int>& numbers_list);
 void mean_number(vector <int>& numbers_list);
+void determine_smallest_num(vector <int>& numbers_list);
 bool check_number(string);
 
 int main()
@@ -134,23 +135,7 @@ int main()
             break;
 
         case 'S':
-            system("cls");
-            if (numbers_list.size() == 0)
-            {
-                cout << "\nUnable to determine the smallest number - list is empty!" << endl;
-            }
-            else
-            {
-                int min_number{ INT_MAX };
-                for (int number : numbers_list)
-                {
-                    if (number < min_number)
-                    {
-                        min_number = number;
-                    }
-                }
-                cout << "\nThe smallest number is: " << min_number << endl;
-            }
+            determine_smallest_num(numbers_list);
             break;
 
         case 'L':
@@ -339,6 +324,29 @@ void mean_number(vector<int>& numbers_list)
         }
         numbers_average = numbers_sum / numbers_list.size();
         cout << "\nAverage of the list is: " << numbers_average << endl;
+        cout << "----------" << endl;
+    }
+}
+//Determine and print smallest number in the number_list vector
+void determine_smallest_num(vector<int>& numbers_list)
+{
+    system("cls");
+    if (numbers_list.size() == 0)
+    {
+        cout << "\nUnable to determine the smallest number - list is empty!" << endl;
+        cout << "----------" << endl;
+    }
+    else
+    {
+        int min_number{ INT_MAX };
+        for (int number : numbers_list)
+        {
+            if (number < min_number)
+            {
+                min_number = number;
+            }
+        }
+        cout << "\nThe smallest number is: " << min_number << endl;
         cout << "----------" << endl;
     }
 }
