@@ -108,6 +108,7 @@ void determine_smallest_num(vector <int>& numbers_list);
 void determine_largest_num(vector <int>& numbers_list);
 void undo(vector <int>& numbers_list, vector <int>& redo_undo_buffer_vector);
 void redo(vector <int>& redo_undo_buffer_vector, vector <int>& numbers_list);
+void search_num(vector <int>& numbers_list);
 bool check_number(string);
 
 int main()
@@ -154,29 +155,7 @@ int main()
             break;
 
         case 'F':
-            system("cls");
-            {
-                cout << "Please enter the number to search in the list: ";
-                int number_to_search{ 0 };
-                int number_count{ 0 };
-                vector <int> number_index{};
-                cin >> number_to_search;
-                for (int i = 0; i < numbers_list.size(); ++i)
-                {
-                    if (numbers_list.at(i) == number_to_search)
-                    {
-                        number_index.push_back(i);
-                        ++number_count;
-                    }
-                }
-                cout << "\nThe searched number: " << number_to_search << " is " << number_count << " times in the list." << endl;
-                cout << "Indexes of this number is: [ ";
-                for (int number : number_index)
-                {
-                    cout << number << " ";
-                }
-                cout << "]" << endl;
-            }
+            search_num(numbers_list);
             break;
 
         case 'C':
@@ -376,6 +355,41 @@ void redo(vector<int>& redo_undo_buffer_vector, vector<int>& numbers_list)
         cout << "Done! Last number was recovered in the list" << endl;
         cout << "----------" << endl;
     }
+}
+
+//Search the number, indexes of the number and count quantity of the number
+//in the numbers list
+void search_num(vector<int>& numbers_list)
+{
+    system("cls");
+    cout << "Please enter the number to search in the list: ";
+
+    int number_to_search{ 0 };
+    int number_count{ 0 };
+    vector <int> number_index{};
+
+    cin >> number_to_search;
+
+    for (size_t i = 0; i < numbers_list.size(); ++i)
+    {
+        if (numbers_list.at(i) == number_to_search)
+        {
+            number_index.push_back(i);
+            ++number_count;
+        }
+    }
+
+    cout << "\nThe searched number: " << number_to_search << " is " << number_count << " times in the list." << endl;
+    cout << "Indexes of this number is: [ ";
+
+    for (int number : number_index)
+    {
+        cout << number << " ";
+    }
+
+    cout << "]" << endl;
+    cout << "----------" << endl;
+    
 }
 
 bool check_number(string str) {
