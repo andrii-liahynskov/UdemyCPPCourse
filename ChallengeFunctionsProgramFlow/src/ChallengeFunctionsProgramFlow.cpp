@@ -106,13 +106,14 @@ void add_number(vector <int>& numbers_list);
 void mean_number(vector <int>& numbers_list);
 void determine_smallest_num(vector <int>& numbers_list);
 void determine_largest_num(vector <int>& numbers_list);
+void undo(vector <int>& numbers_list, vector <int>& redo_undo_buffer_vector);
 bool check_number(string);
 
 int main()
 {
     char selected_menu_item{};
     vector <int> numbers_list{};
-    vector <int> redo_undo{};
+    vector <int> redo_undo_buffer_vector{};
 
     while (selected_menu_item != 'Q')
     {
@@ -144,31 +145,20 @@ int main()
             break;
 
         case 'U':
-            system("cls");
-            if (numbers_list.size() == 0)
-            {
-                cout << "\nYour list is empty! Nothing to undo!" << endl;
-                break;
-            }
-            else
-            {
-                redo_undo.push_back(numbers_list.back());
-                numbers_list.pop_back();
-                cout << "Done! Last number was removed from the list" << endl;
-            }
+            undo(numbers_list, redo_undo_buffer_vector);
             break;
 
         case 'R':
             system("cls");
-            if (redo_undo.size() == 0)
+            if (redo_undo_buffer_vector.size() == 0)
             {
                 cout << "\nNothing to redo!" << endl;
                 break;
             }
             else
             {
-                numbers_list.push_back(redo_undo.back());
-                redo_undo.pop_back();
+                numbers_list.push_back(redo_undo_buffer_vector.back());
+                redo_undo_buffer_vector.pop_back();
                 cout << "Done! Last number was recovered in the list" << endl;
             }
             break;
@@ -358,6 +348,23 @@ void determine_largest_num(vector<int>& numbers_list)
             }
         }
         cout << "\nThe largest number is: " << max_number << endl;
+        cout << "----------" << endl;
+    }
+}
+
+void undo(vector<int>& numbers_list, vector<int>& redo_undo_buffer_vector)
+{
+    system("cls");
+    if (numbers_list.size() == 0)
+    {
+        cout << "\nYour list is empty! Nothing to undo!" << endl;
+        cout << "----------" << endl;
+    }
+    else
+    {
+        redo_undo_buffer_vector.push_back(numbers_list.back());
+        numbers_list.pop_back();
+        cout << "Done! Last number was removed from the list" << endl;
         cout << "----------" << endl;
     }
 }
