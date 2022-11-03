@@ -105,6 +105,7 @@ void print_vector(vector <int> numbers_list);
 void add_number(vector <int>& numbers_list);
 void mean_number(vector <int>& numbers_list);
 void determine_smallest_num(vector <int>& numbers_list);
+void determine_largest_num(vector <int>& numbers_list);
 bool check_number(string);
 
 int main()
@@ -139,23 +140,7 @@ int main()
             break;
 
         case 'L':
-            system("cls");
-            if (numbers_list.size() == 0)
-            {
-                cout << "\nUnable to determine the largest number - list is empty!" << endl;
-            }
-            else
-            {
-                int max_number{ INT_MIN };
-                for (int number : numbers_list)
-                {
-                    if (number > max_number)
-                    {
-                        max_number = number;
-                    }
-                }
-                cout << "\nThe largest number is: " << max_number << endl;
-            }
+            determine_largest_num(numbers_list);
             break;
 
         case 'U':
@@ -305,6 +290,7 @@ void add_number(vector <int>& numbers_list)
     cin.ignore(1000, '\n');
     system("cls");
 }
+
 //Calculate mean of the vector numbers
 void mean_number(vector<int>& numbers_list)
 {
@@ -327,6 +313,7 @@ void mean_number(vector<int>& numbers_list)
         cout << "----------" << endl;
     }
 }
+
 //Determine and print smallest number in the number_list vector
 void determine_smallest_num(vector<int>& numbers_list)
 {
@@ -347,6 +334,30 @@ void determine_smallest_num(vector<int>& numbers_list)
             }
         }
         cout << "\nThe smallest number is: " << min_number << endl;
+        cout << "----------" << endl;
+    }
+}
+
+//Determine and print largest number in the number_list vector
+void determine_largest_num(vector<int>& numbers_list)
+{
+    system("cls");
+    if (numbers_list.size() == 0)
+    {
+        cout << "\nUnable to determine the largest number - list is empty!" << endl;
+        cout << "----------" << endl;
+    }
+    else
+    {
+        int max_number{ INT_MIN };
+        for (int number : numbers_list)
+        {
+            if (number > max_number)
+            {
+                max_number = number;
+            }
+        }
+        cout << "\nThe largest number is: " << max_number << endl;
         cout << "----------" << endl;
     }
 }
