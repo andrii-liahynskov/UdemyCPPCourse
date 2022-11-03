@@ -103,6 +103,7 @@ void display_menu();
 char input_menu_item_to_uppercase(char);
 void print_vector(vector <int>);
 void add_number(vector <int>&);
+void mean_number(vector <int>& numbers_list);
 bool check_number(string);
 
 int main()
@@ -129,22 +130,7 @@ int main()
             break;
 
         case 'M':
-            system("cls");
-            if (numbers_list.size() == 0)
-            {
-                cout << "\nUnable to calculate the mean? no data!" << endl;
-            }
-            else
-            {
-                double numbers_sum{ 0 };
-                double numbers_average{ 0.0 };
-                for (size_t i = 0; i < numbers_list.size(); i++)
-                {
-                    numbers_sum += numbers_list.at(i);
-                }
-                numbers_average = numbers_sum / numbers_list.size();
-                cout << "\nAverage of the list is: " << numbers_average << endl;
-            }
+            mean_number(numbers_list);
             break;
 
         case 'S':
@@ -304,7 +290,7 @@ void print_vector(vector <int> numbers_list)
     if (numbers_list.size() == 0)
     {
         cout << "\n[ ] - the list is empty!" << endl;
-        cout << "----------";
+        cout << "----------" << endl;
     }
     else
     {
@@ -314,12 +300,14 @@ void print_vector(vector <int> numbers_list)
             cout << number << " ";
         }
         cout << "]" << endl;
+        cout << "----------" << endl;
     }
 }
 
 //Add number to vector
 void add_number(vector <int>& numbers_list)
 {
+    system("cls");
     cout << "Please, enter an integer for adding to the vector." << endl;
     cout << "For exit, enter char or non integer symbol and press ENTER" << endl;
     int input_number;
@@ -330,6 +318,29 @@ void add_number(vector <int>& numbers_list)
     }  
     cin.clear();
     cin.ignore(1000, '\n');
+    system("cls");
+}
+//Calculate mean of the vector numbers
+void mean_number(vector<int>& numbers_list)
+{
+    system("cls");
+    if (numbers_list.size() == 0)
+    {
+        cout << "\nUnable to calculate the mean, no data!" << endl;
+        cout << "----------" << endl;
+    }
+    else
+    {
+        double numbers_sum{ 0 };
+        double numbers_average{ 0.0 };
+        for (size_t i = 0; i < numbers_list.size(); i++)
+        {
+            numbers_sum += numbers_list.at(i);
+        }
+        numbers_average = numbers_sum / numbers_list.size();
+        cout << "\nAverage of the list is: " << numbers_average << endl;
+        cout << "----------" << endl;
+    }
 }
 
 bool check_number(string str) {
