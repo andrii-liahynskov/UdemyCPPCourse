@@ -107,6 +107,7 @@ void mean_number(vector <int>& numbers_list);
 void determine_smallest_num(vector <int>& numbers_list);
 void determine_largest_num(vector <int>& numbers_list);
 void undo(vector <int>& numbers_list, vector <int>& redo_undo_buffer_vector);
+void redo(vector <int>& redo_undo_buffer_vector, vector <int>& numbers_list);
 bool check_number(string);
 
 int main()
@@ -149,18 +150,7 @@ int main()
             break;
 
         case 'R':
-            system("cls");
-            if (redo_undo_buffer_vector.size() == 0)
-            {
-                cout << "\nNothing to redo!" << endl;
-                break;
-            }
-            else
-            {
-                numbers_list.push_back(redo_undo_buffer_vector.back());
-                redo_undo_buffer_vector.pop_back();
-                cout << "Done! Last number was recovered in the list" << endl;
-            }
+            redo(redo_undo_buffer_vector, numbers_list);
             break;
 
         case 'F':
@@ -352,6 +342,7 @@ void determine_largest_num(vector<int>& numbers_list)
     }
 }
 
+//Undo the input of the last number added to the numbers_list vector
 void undo(vector<int>& numbers_list, vector<int>& redo_undo_buffer_vector)
 {
     system("cls");
@@ -365,6 +356,24 @@ void undo(vector<int>& numbers_list, vector<int>& redo_undo_buffer_vector)
         redo_undo_buffer_vector.push_back(numbers_list.back());
         numbers_list.pop_back();
         cout << "Done! Last number was removed from the list" << endl;
+        cout << "----------" << endl;
+    }
+}
+
+//Redo the undo operation of the last number added to the numbers_list vector
+void redo(vector<int>& redo_undo_buffer_vector, vector<int>& numbers_list)
+{
+    system("cls");
+    if (redo_undo_buffer_vector.size() == 0)
+    {
+        cout << "\nNothing to redo!" << endl;
+        cout << "----------" << endl;
+    }
+    else
+    {
+        numbers_list.push_back(redo_undo_buffer_vector.back());
+        redo_undo_buffer_vector.pop_back();
+        cout << "Done! Last number was recovered in the list" << endl;
         cout << "----------" << endl;
     }
 }
