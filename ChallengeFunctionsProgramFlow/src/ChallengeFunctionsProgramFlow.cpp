@@ -109,6 +109,7 @@ void determine_largest_num(vector <int>& numbers_list);
 void undo(vector <int>& numbers_list, vector <int>& redo_undo_buffer_vector);
 void redo(vector <int>& redo_undo_buffer_vector, vector <int>& numbers_list);
 void search_num(vector <int>& numbers_list);
+void clear_numbers_list(vector <int>& numbers_list);
 bool check_number(string);
 
 int main()
@@ -159,22 +160,7 @@ int main()
             break;
 
         case 'C':
-            system("cls");
-            {
-                char y_n_char{};
-                while (y_n_char != 'n' && y_n_char != 'N')
-                {
-                    cout << "You really want to clear data in the list? Y/N: ";
-                    cin >> y_n_char;
-                    if (y_n_char == 'y')
-                    {
-                        numbers_list.clear();
-                        cout << "The list is cleared" << endl;
-                        break;
-                    }
-                }
-                system("cls");
-            }
+            clear_numbers_list(numbers_list);
             break;
 
         case 'Q':
@@ -390,6 +376,36 @@ void search_num(vector<int>& numbers_list)
     cout << "]" << endl;
     cout << "----------" << endl;
     
+}
+
+//Delete numbers_list vector
+void clear_numbers_list(vector<int>& numbers_list)
+{
+    system("cls");
+    char y_n_char{};
+    while (y_n_char != 'n' && y_n_char != 'N')
+    {
+        if (numbers_list.size() == 0)
+        {
+            cout << "The list is empty, nothing to delete" << endl;
+            cout << "----------" << endl;
+        }
+        else
+        {
+            cout << "You really want to clear data in the list? Y/N: ";
+            cout << "\n----------" << endl;
+            cin >> y_n_char;
+
+            if (y_n_char == 'y')
+            {
+                system("cls");
+                cout << "The list is cleared" << endl;
+                cout << "----------" << endl;
+                numbers_list.clear();
+            }
+        }
+        break;
+    }
 }
 
 bool check_number(string str) {
