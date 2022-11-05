@@ -409,6 +409,7 @@ void clear_numbers_list(vector<int>& numbers_list)
     }
 }
 
+//Check input numbers for int
 bool check_number(string str) {
     for (int i = 0; i < str.length(); i++)
         if (isdigit(str[i]) == false)
