@@ -126,7 +126,7 @@ int main()
 
         switch (selected_menu_item)
         {
-        case 'P':
+        case 'P': //Print vector
             system("cls");
             print_vector(numbers_list);
             break;
@@ -135,35 +135,36 @@ int main()
             add_number(numbers_list);
             break;
 
-        case 'M':
+        case 'M': //Calculate mean of the vector numbers
             mean_number(numbers_list);
             break;
 
-        case 'S':
+        case 'S': //Determine and print smallest number in the number_list vector
             determine_smallest_num(numbers_list);
             break;
 
-        case 'L':
+        case 'L': //Determine and print largest number in the number_list vector
             determine_largest_num(numbers_list);
             break;
 
-        case 'U':
+        case 'U': //Undo the input of the last number added to the numbers_list vector
             undo(numbers_list, redo_undo_buffer_vector);
             break;
 
-        case 'R':
+        case 'R': //Redo the undo operation of the last number added to the numbers_list vector
             redo(redo_undo_buffer_vector, numbers_list);
             break;
 
-        case 'F':
+        case 'F': //Search the number
             search_num(numbers_list);
             break;
 
-        case 'C':
+        case 'C': //Delete numbers_list vector
             clear_numbers_list(numbers_list);
             break;
 
-        case 'Q':
+        case 'Q': //Quit program
+            system ("cls");
             cout << "Goodbye!" << endl;
             break;
         default:
@@ -356,7 +357,7 @@ void search_num(vector<int>& numbers_list)
 
     cin >> number_to_search;
 
-    for (size_t i = 0; i < numbers_list.size(); ++i)
+    for (int i = 0; i < numbers_list.size(); ++i)
     {
         if (numbers_list.at(i) == number_to_search)
         {
