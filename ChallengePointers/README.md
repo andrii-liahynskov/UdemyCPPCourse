@@ -40,12 +40,4 @@ Write a C++ function named apply_all that expects two arrays of integers and the
 ```
 ***Screenshots of running program in the console:***
 
-![challenge_program_flow01](docs/refactor_prog_flow_01.jpg)
-
-![challenge_program_flow02](docs/refactor_prog_flow_02.jpg)
-
-![challenge_program_flow03](docs/refactor_prog_flow_03.jpg)
-
-![challenge_program_flow04](docs/refactor_prog_flow_04.jpg)
-
-![challenge_program_flow05](docs/refactor_prog_flow_05.jpg)
+![challenge_program_flow01](docs/challenge_pointers.jpg)
